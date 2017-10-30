@@ -1,4 +1,4 @@
-<input type="button" value="Plus de chat" class="homebutton" id="btnHome" 
+<input type="button" value="Aucun chat" class="homebutton" id="btnHome" 
 onClick="document.location.href='cats.php'" />
 
 <!DOCTYPE html>
