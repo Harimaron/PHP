@@ -1,35 +1,21 @@
 <?php
 $child = $_GET["child"];
 $teacher = $_GET["teacher"];
-    if ($age < 12) {
-} elseif ($age >= 12 && $age <= 18) {
-    if($talig == "oui"){
-        if($gender == "homme") echo "Hello Teenage boy!";
-        else echo "Hello Teenage girl!";  
-    }
-    else {
-        if($gender == "homme") echo "Salut l'adolescent!";
-        else echo "Salut l'adolescente!"; 
-    }
-} elseif ($age > 18 && $age <= 115) {
-    if($talig == "oui"){
-        if($gender == "homme") echo "Hello Sir!";
-        else echo "Hello Lady!";  
-    }
-    else {
-        if($gender == "homme") echo "Salut l'adulte!";
-        else echo "Salut l'adulte!"; 
-    }
-} elseif ($age > 115) {
-    if($talig == "oui"){
-        if($gender == "homme") echo "Wow! Still alive, old man?";
-        else echo "Wow! Still alive, old lady?";  
-    }
-    else {
-        if($gender == "homme") echo "Wow! Toujours vivant?";
-        else echo "Wow! Toujours vivante?"; 
-    }
+$absence = $_GET["absence"];
+$sentence = "Monsieur/Madame ".$teacher.", ".$child." ne pourra se présenter en cours aujourd'hui, ";
+if ($absence == "illness") {
+    $sentence .= "pour cause de maladie.";
 }
+if ($absence == "death") {
+    $sentence .= "à cause du décès de son animal de compagnie.";
+}
+if ($absence == "extra") {
+    $sentence .= "pour raisons d'activité extra-scolaire.";
+}
+if ($absence == "other") {
+    $sentence .= "pour raisons personnelles.";
+}
+echo $sentence;
 ?>
 
 
@@ -47,17 +33,19 @@ Nom de l'institutrice
 <br/>
 Raison de l'absence
 <br/>
-<input type="radio" name="child" value="oui">
+<input type="radio" name="absence" value="illness">
 Maladie
 </br>
-<input type="radio" name="child" value="non">
+<input type="radio" name="absence" value="death">
 Décès de l'animal de compagnie
 </br>
-<input type="radio" name="child" value="non">
+<input type="radio" name="absence" value="extra">
 Activité extra-scolaire importante
 </br>
-<input type="radio" name="child" value="non">
+<input type="radio" name="absence" value="other">
 Autre
+</br>
+<input type="submit" value="generate">
 </form>
 </body>
 </html> 
